@@ -4,6 +4,16 @@ function calculateTip() {
   let serviceQuality = document.querySelector("#service-quality").value;
   let numOfPeople = document.querySelector("#ppl-amt").value;
 
+  //validate input
+  if (billAmount == 0 || serviceQuality == 0) {
+    alert("Please enter values for bill and service quality.");
+    return;
+  }
+  if (billAmount <= 0) {
+    alert("Negative bill? Check again.");
+    return;
+  }
+
   //calculate tip
   let tip = (billAmount * serviceQuality) / numOfPeople;
   tip = Math.floor(tip * 100) / 100;
